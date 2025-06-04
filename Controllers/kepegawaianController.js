@@ -59,7 +59,7 @@ daruratnotelp: req.body['req_daruratnotelp']
 
  console.log("✅ Data to insert:", data);
     await pegawaiModel.insertPegawai(data);
-    //res.redirect('/success-page'); // or render a view / send JSON
+    //res.redirect('/success-page'); // or ren   der a view / send JSON
     res.json({ success: true }); 
   } catch (error) {
     console.error(error);

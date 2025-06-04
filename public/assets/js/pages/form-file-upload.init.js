@@ -40,7 +40,7 @@ Array.from(inputMultipleElements).forEach(function (inputElement) {
     // create a FilePond instance at the input element location
     FilePond.create(inputElement);
 })
-
+//asds
 FilePond.create(
     document.querySelector('.filepond-input-circle'), {
         labelIdle: 'Drag & Drop your picture or <span class="filepond--label-action">Browse</span>',
