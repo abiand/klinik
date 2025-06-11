@@ -5,6 +5,13 @@
 <!--datatable responsive css-->
 <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap.min.css" />
 <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
+
+ <!-- dropzone css -->
+ <link rel="stylesheet" href="assets/libs/dropzone/dropzone.css" type="text/css" />
+
+ <!-- Filepond css -->
+ <link rel="stylesheet" href="assets/libs/filepond/filepond.min.css" type="text/css" />
+ <link rel="stylesheet" href="assets/libs/filepond-plugin-image-preview/filepond-plugin-image-preview.min.css">
 <%- contentFor('body') %>
 <div class="row">
     <div class="col-lg-12">
@@ -296,6 +303,22 @@
                         <input type="text" class="form-control" placeholder="Enter your Email" id="email">
                       </div>
                     </div>
+
+             <div class="col-md-6">
+                  <div class="mb-3">
+                        <label for="photo" class="form-label">Photo</label>
+                 
+                         <div class="avatar-xl mx-auto">
+                             <input type="file" class="filepond filepond-input-circle" name="filepond"
+                                 accept="image/png, image/jpeg, image/gif" />
+                         </div>
+
+                     <!-- end card body -->
+                 </div>
+                 <!-- end card -->
+             </div> <!-- end col -->
+
+
                   </div>
                 </div>
               </div>
@@ -447,9 +470,9 @@
                 <table id="horariumtable" class="table table-nowrap dt-responsive table-bordered display" style="width:100%">
                     <thead>
                         <tr>
-                            <th>Tindakan</th>
-                            <th>Treatment</th>
-                            <th>Obat</th>
+                            <th>Tipe</th>
+                            <th>Nominal</th>
+                            <th>Jumlah</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -459,6 +482,7 @@
     </div><!--end col-->
 </div><!--end row-->
 </div>
+
 
                   </div>
                 </div>
@@ -523,7 +547,22 @@
 <script src="assets/libs/list.js/list.min.js"></script>
 <script src="assets/libs/list.pagination.js/list.pagination.min.js"></script>
 
+ <!-- dropzone min -->
+ <script src="assets/libs/dropzone/dropzone-min.js"></script>
+ <!-- filepond js -->
+ <script src="assets/libs/filepond/filepond.min.js"></script>
+ <script src="assets/libs/filepond-plugin-image-preview/filepond-plugin-image-preview.min.js"></script>
+ <script src="assets/libs/filepond-plugin-file-validate-size/filepond-plugin-file-validate-size.min.js"></script>
+ <script src="assets/libs/filepond-plugin-image-exif-orientation/filepond-plugin-image-exif-orientation.min.js">
+ </script>
+ <script src="assets/libs/filepond-plugin-file-encode/filepond-plugin-file-encode.min.js"></script>
+
 <!-- listjs init -->
 <script src="assets/js/pages/kepegawaian.init.js"></script>
 <script src="assets/libs/sweetalert2/sweetalert2.min.js"></script>
 <!-- App js -->
+
+
+
+
+
