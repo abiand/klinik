@@ -52,13 +52,13 @@ statuspegawai: req.body['req_statuspegawai'],
 jumlahcuti: req.body['req_jumlahcuti'],
 daruratnama: req.body['req_daruratnama'],
 darurathubungan: req.body['req_darurathubungan'],
-daruratnotelp: req.body['req_daruratnotelp'] 
-
+daruratnotelp: req.body['req_daruratnotelp'],
+honorarium: req.body['req_honorarium']
 };
-
+const honorariumArr = JSON.parse(data.honorarium || "[]");
 
  console.log("✅ Data to insert:", data);
-    await pegawaiModel.insertPegawai(data);
+    await pegawaiModel.insertPegawai(data, honorariumArr);
     //res.redirect('/success-page'); // or ren   der a view / send JSON
     res.json({ success: true }); 
   } catch (error) {

@@ -16,7 +16,7 @@ async function getAllPegawai() {
   return rows;
 }
 
-async function insertPegawai(data) {
+async function insertPegawai(data, honorariumArr) {
  // await poolConnect;
   //const request = poolPromise.request();
 
@@ -117,7 +117,21 @@ const [result] = await poolPromise.query(sqlQuery, [
   data.darurathubungan,
   data.daruratnotelp 
 ]);
-
+ const pegawaiId = result.insertId;
+  if (honorariumArr && honorariumArr.length > 0) {
+    const honorariumSql = `
+      INSERT INTO honorarium (pegawai_id, type, nominal, jumlah)
+      VALUES (?, ?, ?, ?)
+    `;
+    for (const row of honorariumArr) {
+      await poolPromise.query(honorariumSql, [
+        pegawaiId,
+        row.tipe,
+        row.nominal,
+        row.jumlah
+      ]);
+    }
+  }
 
   //console.log('Insert result:', result);  
   return result;

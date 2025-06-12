@@ -118,7 +118,41 @@ $(document).ready(function () {
             $('#horariumtable').DataTable().columns.adjust().draw();
         });
     
-    
+       // On form submit
+    $('form').on('submit', function(e) {
+        e.preventDefault();
+
+        // Collect honorarium grid data
+        var honorarium = [];
+        t.rows().every(function() {
+            var row = this.data();
+            honorarium.push({
+                tipe: row[0],
+                nominal: row[1],
+                jumlah: row[2]
+            });
+        });
+        // Put grid data in hidden input
+        $('#honorarium_json').val(JSON.stringify(honorarium));
+
+        // Collect the rest of the form data
+        var formData = new FormData(this);
+
+        $.ajax({
+            url: '/your-backend-save-url', // replace with your real endpoint
+            type: 'POST',
+            data: formData,
+            processData: false, // for FormData
+            contentType: false, // for FormData
+            success: function(response) {
+                Swal.fire('Success', 'Data saved!', 'success');
+                // Optionally close modal, reset form, etc.
+            },
+            error: function(xhr) {
+                Swal.fire('Error', 'Failed to save data', 'error');
+            }
+        });
+    });
 
         
     });
@@ -377,6 +411,18 @@ if (addBtn)
             email.value !== "" */
         ) {
             try {
+
+                    var t = $('#horariumtable').DataTable();
+        var honorarium = [];
+        t.rows().every(function() {
+            var row = this.data();
+            honorarium.push({
+                tipe: row[0],
+                nominal: row[1],
+                jumlah: row[2]
+            });
+        });
+        var honorarium_json = JSON.stringify(honorarium);
                 const response = await fetch("http://localhost:3001/api/submit-pegawai", {
                     method: "POST",
                     headers: {
@@ -414,7 +460,8 @@ if (addBtn)
                     req_jumlahcuti: jumlahcuti.value,
                     req_daruratnama: daruratnama.value,
                     req_darurathubungan: darurathubungan.value,
-                    req_daruratnotelp: daruratnotelp.value
+                    req_daruratnotelp: daruratnotelp.value,
+                    req_honorarium: honorarium_json
                 })
                 });
                 const result = await response.json();
