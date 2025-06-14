@@ -386,118 +386,72 @@ var trlist = table.querySelectorAll(".list tr");
 var count = 11;
 if (addBtn)
 
-    addBtn.addEventListener("click",async function (e) {
-       
+   addBtn.addEventListener("click", async function (e) {
     e.preventDefault();
-        if (
-          //  idpegawai.value !== "" &&
-            nik.value !== "" &&
-            nama.value !== ""/*&&
-            namabelakang.value !== "" &&
-            tempat.value !== "" &&
-            tgllahir.value !== "" &&
-            alamat.value !== "" &&
-            provinsi.value !== "" &&
-            kota.value !== "" &&
-            kecamatan.value !== "" &&
-            desa.value !== "" &&
-            jeniskelamin.value !== "" &&
-            wniwna.value !== "" &&
-            goldarah.value !== "" &&
-            status.value !== "" &&
-            kantor.value !== "" &&
-            agama.value !== "" &&
-            notelp.value !== "" &&
-            email.value !== "" */
-        ) {
-            try {
+    // Basic validation (adapt as needed)
+    if (
+        nik.value !== "" &&
+        nama.value !== ""
+    ) {
+        try {
+            // 1. Get honorarium data as JSON
+            var t = $('#horariumtable').DataTable();
+            var honorarium = [];
+            t.rows().every(function() {
+                var row = this.data();
+                honorarium.push({
+                    tipe: row[0],
+                    nominal: row[1],
+                    jumlah: row[2]
+                });
+            });
 
-                    var t = $('#horariumtable').DataTable();
-        var honorarium = [];
-        t.rows().every(function() {
-            var row = this.data();
-            honorarium.push({
-                tipe: row[0],
-                nominal: row[1],
-                jumlah: row[2]
+            // 2. Build FormData from form (replace '#yourFormId' with your actual <form> id or element)
+          //  const form = document.querySelector('form'); // or document.getElementById('yourFormId')
+            const form = document.getElementById('myForm');
+            const formData = new FormData(form);
+
+
+            const value = formData.get('req_nama'); // 'nama' is the name attribute of the input
+console.log("qwert "+value);
+
+            // 3. Add honorarium JSON as hidden field or here:
+            formData.append("honorarium_json", JSON.stringify(honorarium));
+
+            // 4. Submit with fetch (no Content-Type header!)
+            const response = await fetch("http://localhost:3001/api/submit-pegawai", {
+                method: "POST",
+                body: formData
             });
-        });
-        var honorarium_json = JSON.stringify(honorarium);
-                const response = await fetch("http://localhost:3001/api/submit-pegawai", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                body: JSON.stringify({
-                  //  req_idpegawai: idpegawai.value,
-                    req_nik: nik.value,
-                    req_nama: nama.value,
-                    req_namabelakang: namabelakang.value,
-                    req_tempat: tempat.value,
-                    req_tgllahir: tgllahir.value,
-                    req_alamat: alamat.value,
-                    req_provinsi: provinsi.value,
-                    req_kota: kota.value,
-                    req_kecamatan: kecamatan.value,
-                    req_desa: desa.value,
-                    req_jeniskelamin: jeniskelamin.value,
-                    req_wniwna: wniwna.value,
-                    req_goldarah: goldarah.value,
-                    req_status: status.value,
-                    req_kantor: kantor.value,
-                    req_agama: agama.value,
-                    req_notelp: notelp.value,
-                    req_email: email.value,
-                    req_pendidikan: pendidikan.value,
-                    req_alumni: alumni.value,
-                    req_tahunlulus: tahunlulus.value,
-                    req_jurusan: jurusan.value,
-                    req_jabatan: jabatan.value,
-                    req_department: department.value,
-                    req_mulaikontrak: mulaikontrak.value,
-                    req_mulaibekerja: mulaibekerja.value,
-                    req_statuspegawai: statuspegawai.value,
-                    req_jumlahcuti: jumlahcuti.value,
-                    req_daruratnama: daruratnama.value,
-                    req_darurathubungan: darurathubungan.value,
-                    req_daruratnotelp: daruratnotelp.value,
-                    req_honorarium: honorarium_json
-                })
-                });
-                const result = await response.json();
-            kepegawaianList.add({
-                id: '<a href="javascript:void(0);" class="fw-medium link-primary">#VZ'+count+"</a>",
-                customer_name: idpegawai.value/*,
-                email: emailField.value,
-                date: dateField.value,
-                phone: phoneField.value,
-                status: isStatus(statusField.value),*/
-            });
-            kepegawaianList.sort('id', { order: "desc" });
-            document.getElementById("close-modal").click();
-            clearFields();
-            refreshCallbacks();
-            filterContact("All");
-            count++;
-                  if (result.success) {
-            Swal.fire({
-              position: 'center',
-              icon: 'success',
-              title: 'Customer inserted successfully!',
-              showConfirmButton: false,
-              timer: 2000,
-              showCloseButton: true
-            });}
-                        }catch (error) {
-                console.error("POST failed:", error);
+
+            const result = await response.json();
+
+            // 5. Success logic
+            if (result.success) {
                 Swal.fire({
-                    icon: "error",
-                    title: "Error",
-                    text: "Failed to add customer."
+                  position: 'center',
+                  icon: 'success',
+                  title: 'Customer inserted successfully!',
+                  showConfirmButton: false,
+                  timer: 2000,
+                  showCloseButton: true
                 });
+                // Reset the form/UI as needed
+                document.getElementById("close-modal").click();
+                clearFields();
+                refreshCallbacks();
+                filterContact("All");
             }
+        } catch (error) {
+            console.error("POST failed:", error);
+            Swal.fire({
+                icon: "error",
+                title: "Error",
+                text: "Failed to add customer."
+            });
         }
-    });
+    }
+});
 if (editBtn)
     editBtn.addEventListener("click", function (e) {
         document.getElementById("exampleModalLabel").innerHTML = "Edit Customer";

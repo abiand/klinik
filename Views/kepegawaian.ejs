@@ -142,7 +142,8 @@
       </div>
 
       <!-- Begin unified form -->
-      <form action="javascript:void(0);">
+      <!--<form action="javascript:void(0);">-->
+      <form id="myForm">
         <div class="modal-body">
           <div class="row">
             <!-- First Column -->
@@ -153,55 +154,55 @@
                     <div class="col-md-6">
                       <div class="mb-3">
                         <label for="idpegawai" class="form-label">ID Pegawai</label>
-                        <input type="text" class="form-control" placeholder="Enter your CardID" id="idpegawai">
+                        <input type="text" class="form-control" placeholder="Enter your CardID" id="idpegawai" >
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="mb-3">
                         <label for="nik" class="form-label">NIK</label>
-                        <input type="text" class="form-control" placeholder="Enter your NIK" id="nik">
+                        <input type="text" class="form-control" placeholder="Enter your NIK" id="nik" name="req_nik">
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="mb-3">
                         <label for="nama" class="form-label">Nama</label>
-                        <input type="text" class="form-control" placeholder="Enter your Fullname" id="nama">
+                        <input type="text" class="form-control" placeholder="Enter your Fullname" id="nama" name="req_nama">
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="mb-3">
                         <label for="namabelakang" class="form-label">Nama Belakang</label>
-                        <input type="text" class="form-control" placeholder="Enter your Lastname" id="namabelakang">
+                        <input type="text" class="form-control" placeholder="Enter your Lastname" id="namabelakang" name="req_namabelakang">
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="mb-3">
                         <label for="tempat" class="form-label">Tempat</label>
-                        <input type="text" class="form-control" placeholder="Enter your Place Birth" id="tempat">
+                        <input type="text" class="form-control" placeholder="Enter your Place Birth" id="tempat" name="req_tempat">
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="mb-3">
                         <label for="tgllahir" class="form-label">Tgl Lahir</label>
-                        <input type="date" class="form-control" id="tgllahir">
+                        <input type="date" class="form-control" id="tgllahir" name="req_tgllahir">
                       </div>
                     </div>
                     <div class="col-md-12">
                       <div class="mb-3">
                         <label for="alamat" class="form-label">Alamat</label>
-                        <textarea class="form-control" id="alamat" rows="3" placeholder="Enter your message"></textarea>
+                        <textarea class="form-control" id="alamat" rows="3" placeholder="Enter your message" name="req_alamat"></textarea>
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="mb-3">
                         <label for="provinsi" class="form-label">Provinsi</label>
-                        <input type="text" class="form-control" placeholder="Enter your city" id="provinsi">
+                        <input type="text" class="form-control" placeholder="Enter your city" id="provinsi" name="req_provinsi">
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="mb-3">
                         <label for="kota" class="form-label">Kota</label>
-                        <select id="kota" class="form-select" data-choices data-choices-sorting="true">
+                        <select id="kota" class="form-select" data-choices data-choices-sorting="true" name="req_kota">
                           <option selected>Choose...</option>
                           <option>...</option>
                         </select>
@@ -210,7 +211,7 @@
                     <div class="col-md-6">
                       <div class="mb-3">
                         <label for="kecamatan" class="form-label">Kecamatan</label>
-                        <select id="kecamatan" class="form-select" data-choices data-choices-sorting="true">
+                        <select id="kecamatan" class="form-select" data-choices data-choices-sorting="true" name="req_kecamatan">
                           <option selected>Choose...</option>
                           <option>...</option>
                         </select>
@@ -219,7 +220,7 @@
                     <div class="col-md-6">
                       <div class="mb-3">
                         <label for="desa" class="form-label">Desa</label>
-                        <select id="desa" class="form-select" data-choices data-choices-sorting="true">
+                        <select id="desa" class="form-select" data-choices data-choices-sorting="true" name="req_desa">
                           <option selected>Choose...</option>
                           <option>...</option>
                         </select>
@@ -228,7 +229,7 @@
                     <div class="col-md-6">
                       <div class="mb-3">
                         <label for="jeniskelamin" class="form-label">Jenis Kelamin</label>
-                        <select id="jeniskelamin" class="form-select" data-choices data-choices-sorting="true">
+                        <select id="jeniskelamin" class="form-select" data-choices data-choices-sorting="true" name="req_jeniskelamin">
 
                           <option>Pria</option>
                           <option>Wanita</option>
@@ -238,7 +239,7 @@
                     <div class="col-md-6">
                       <div class="mb-3">
                         <label for="wniwna" class="form-label">Kewarganegaraan</label>
-                        <select id="wniwna" class="form-select" data-choices data-choices-sorting="true">
+                        <select id="wniwna" class="form-select" data-choices data-choices-sorting="true" name="req_wniwna">
 
                           <option>WNI</option>
                           <option>WNA</option>
@@ -248,7 +249,7 @@
                     <div class="col-md-6">
                       <div class="mb-3">
                         <label for="goldarah" class="form-label">Gol. Darah</label>
-                        <select id="goldarah" class="form-select" data-choices data-choices-sorting="true">
+                        <select id="goldarah" class="form-select" data-choices data-choices-sorting="true" name="req_goldarah">
                
                           <option>A</option>
                           <option>B</option>
@@ -260,7 +261,7 @@
                     <div class="col-md-6">
                       <div class="mb-3">
                         <label for="status" class="form-label">Status</label>
-                        <select id="status" class="form-select" data-choices data-choices-sorting="true">
+                        <select id="status" class="form-select" data-choices data-choices-sorting="true" name="req_status">
                           <option>Belum Menikah</option>
                           <option>Menikah</option>
                           <option>Duda</option>   
@@ -271,7 +272,7 @@
                     <div class="col-md-6">
                       <div class="mb-3">
                         <label for="kantor" class="form-label">Kantor</label>
-                        <select id="kantor" class="form-select" data-choices data-choices-sorting="true">
+                        <select id="kantor" class="form-select" data-choices data-choices-sorting="true" name="req_kantor">
                           <option selected>Choose...</option>
                           <option>...</option>
                         </select>
@@ -280,7 +281,7 @@
                     <div class="col-md-6">
                       <div class="mb-3">
                         <label for="agama" class="form-label">Agama</label>
-                        <select id="agama" class="form-select" data-choices data-choices-sorting="true">
+                        <select id="agama" class="form-select" data-choices data-choices-sorting="true" name="req_agama">
                           <option>Islam</option>
                           <option>kristen</option>
                           <option>Katolik</option>
@@ -294,13 +295,13 @@
                     <div class="col-md-6">
                       <div class="mb-3">
                         <label for="notelp" class="form-label">No telp</label>
-                        <input type="text" class="form-control" placeholder="Enter your Phone" id="notelp">
+                        <input type="text" class="form-control" placeholder="Enter your Phone" id="notelp" name="req_notelp">
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
-                        <input type="text" class="form-control" placeholder="Enter your Email" id="email">
+                        <input type="text" class="form-control" placeholder="Enter your Email" id="email" name="req_email">
                       </div>
                     </div>
 
@@ -332,7 +333,7 @@
                     <div class="col-md-6">
                       <div class="mb-3">
                         <label for="pendidikan" class="form-label">Pendidikan</label>
-                        <select id="pendidikan" class="form-select" data-choices data-choices-sorting="true">
+                        <select id="pendidikan" class="form-select" data-choices data-choices-sorting="true" name="req_pendidikan">
                           <option>SD</option>
                           <option>SLTP</option>
                           <option>SLTA</option>
@@ -348,7 +349,7 @@
                     <div class="col-md-6">
                       <div class="mb-3">
                         <label for="alumni" class="form-label">Alumni</label>
-                        <select id="alumni" class="form-select" data-choices data-choices-sorting="true">
+                        <select id="alumni" class="form-select" data-choices data-choices-sorting="true" name="req_alumni">
                           <option selected>Choose...</option>
                           <option>...</option>
                         </select>
@@ -357,7 +358,7 @@
                     <div class="col-md-6">
                       <div class="mb-3">
                         <label for="tahunlulus" class="form-label">Tahun Lulus</label>
-                        <select id="tahunlulus" class="form-select" data-choices data-choices-sorting="true">
+                        <select id="tahunlulus" class="form-select" data-choices data-choices-sorting="true" name="req_tahunlulus">
                           <option>2025</option>
                           <option>2024</option>
                           <option>2023</option>
@@ -373,13 +374,13 @@
                     <div class="col-md-6">
                       <div class="mb-3">
                         <label for="jurusan" class="form-label">jurusan</label>
-                        <input type="text" class="form-control" placeholder="Enter your city" id="jurusan">
+                        <input type="text" class="form-control" placeholder="Enter your city" id="jurusan" name="req_jurusan">
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="mb-3">
                         <label for="jabatan" class="form-label">Jabatan</label>
-                        <select id="jabatan" class="form-select" data-choices data-choices-sorting="true">
+                        <select id="jabatan" class="form-select" data-choices data-choices-sorting="true" name="req_jabatan">
                           <option>Terapis</option>
                           <option>Kasir</option>
                           <option>DOkter</option>
@@ -391,7 +392,7 @@
                                                                                <div class="col-md-6">
                       <div class="mb-3">
                         <label for="department" class="form-label">Department</label>
-                        <select id="department" class="form-select" data-choices data-choices-sorting="true">
+                        <select id="department" class="form-select" data-choices data-choices-sorting="true" name="req_department">
                           <option selected>Choose...</option>
                           <option>...</option>
                         </select>
@@ -400,19 +401,19 @@
                                                             <div class="col-md-6">
                       <div class="mb-3">
                         <label for="mulaikontrak" class="form-label">Mulai Kontrak</label>
-                        <input type="date" class="form-control" placeholder="Enter your city" id="mulaikontrak">
+                        <input type="date" class="form-control" placeholder="Enter your city" id="mulaikontrak" name="req_mulaikontrak">
                       </div>
                     </div>
                                                                                 <div class="col-md-6">
                       <div class="mb-3">
                         <label for="mulaibekerja" class="form-label">Mulai Bekerja</label>
-                        <input type="date" class="form-control" placeholder="Enter your city" id="mulaibekerja">
+                        <input type="date" class="form-control" placeholder="Enter your city" id="mulaibekerja" name="req_mulaibekerja">
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="mb-3">
                         <label for="statuspegawai" class="form-label">Status Pegawai</label>
-                        <select id="statuspegawai" class="form-select" data-choices data-choices-sorting="true">
+                        <select id="statuspegawai" class="form-select" data-choices data-choices-sorting="true" name="req_statuspegawai">
                           <option>Permanen</option>
                           <option>Kontrak</option>
                         </select>
@@ -421,7 +422,7 @@
                     <div class="col-md-6">
                       <div class="mb-3">
                         <label for="jumlahcuti" class="form-label">Jumlah Cuti</label>
-                        <input type="text" class="form-control" placeholder="Onleave" id="jumlahcuti">
+                        <input type="text" class="form-control" placeholder="Onleave" id="jumlahcuti" name="req_jumlahcuti">
                       </div>
                     </div>
                     
@@ -439,18 +440,18 @@
 </div>
                     <div class="col-12">
                       <label for="daruratnama" class="form-label">Nama</label>
-                      <input type="text" class="form-control" id="daruratnama" placeholder="Apartment, studio, or floor">
+                      <input type="text" class="form-control" id="daruratnama" placeholder="Apartment, studio, or floor" name="req_daruratnama">
                     </div>
                     <div class="col-md-6">
                       <label for="darurathubungan" class="form-label">Hubungan</label>
-                      <select id="darurathubungan" class="form-select" data-choices data-choices-sorting="true">
+                      <select id="darurathubungan" class="form-select" data-choices data-choices-sorting="true" name="req_darurathubungan">
                         <option selected>Choose...</option>
                         <option>...</option>
                       </select>
                     </div>
                     <div class="col-md-6">
                       <label for="daruratnotelp" class="form-label">No Telp</label>
-                      <input type="text" class="form-control" id="daruratnotelp" placeholder="Enter your city">
+                      <input type="text" class="form-control" id="daruratnotelp" placeholder="Enter your city" name="req_daruratnotelp">
                     </div>
 <div class="col-12">
   <div class="d-flex align-items-center mb-3">
