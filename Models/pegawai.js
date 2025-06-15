@@ -76,9 +76,10 @@ const sqlQuery = `
     jumlah_cuti,
     nama_kontak_darurat,
     hubungan,
-    no_telp_darurat
+    no_telp_darurat,
+    photo_path      
   ) VALUES (
-    ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
+    ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
   )
 `;
 
@@ -115,7 +116,8 @@ const [result] = await poolPromise.query(sqlQuery, [
   data.jumlahcuti,
   data.daruratnama,
   data.darurathubungan,
-  data.daruratnotelp 
+  data.daruratnotelp,
+  data.photo_path    
 ]);
  const pegawaiId = result.insertId;
   if (honorariumArr && honorariumArr.length > 0) {

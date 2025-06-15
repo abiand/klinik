@@ -35,7 +35,10 @@ Array.from(inputMultipleElements).forEach(function (inputElement) {
     // create a FilePond instance at the input element location
     FilePond.create(inputElement);
 })
-//asds
+
+FilePond.setOptions({
+  storeAsFile: true
+});
 FilePond.create(
     document.querySelector('.filepond-input-circle'), {
         labelIdle: 'Drag & Drop your picture or <span class="filepond--label-action">Browse</span>',
@@ -117,7 +120,7 @@ $(document).ready(function () {
         $('#showModal').on('shown.bs.modal', function () {
             $('#horariumtable').DataTable().columns.adjust().draw();
         });
-    
+    /*
        // On form submit
     $('form').on('submit', function(e) {
         e.preventDefault();
@@ -152,7 +155,7 @@ $(document).ready(function () {
                 Swal.fire('Error', 'Failed to save data', 'error');
             }
         });
-    });
+    }); */
 
         
     });

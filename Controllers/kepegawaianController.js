@@ -18,6 +18,16 @@ exports.getAllPegawai = async (req, res) => {
 
 exports.submitPegawai = async (req, res) => {
   try {
+
+ let photo_path = null;
+console.log("req.file:", req.file);
+console.log("req.files:", req.files);
+console.log("req.body:", req.body);
+    if (req.file) {
+      photo_path = req.file.path; // This will be like 'uploads/photos/12345678.jpg'
+      
+    }
+
   console.log("🔥 /submit-request hit");
   console.log("📦 req.body:", req.body);
      const data = {
@@ -53,9 +63,17 @@ jumlahcuti: req.body['req_jumlahcuti'],
 daruratnama: req.body['req_daruratnama'],
 darurathubungan: req.body['req_darurathubungan'],
 daruratnotelp: req.body['req_daruratnotelp'],
-honorarium: req.body['req_honorarium']
+honorarium: req.body['honorarium_json'],
+photo_path : photo_path 
 };
-const honorariumArr = JSON.parse(data.honorarium || "[]");
+//const honorariumArr = JSON.parse(data.honorarium || "[]");
+
+   let honorariumJson = req.body.honorarium_json;
+    if (Array.isArray(honorariumJson)) {
+      honorariumJson = honorariumJson.find(x => x && x.trim());
+    }
+    const honorariumArr = JSON.parse(honorariumJson || "[]");
+
 
  console.log("✅ Data to insert:", data);
     await pegawaiModel.insertPegawai(data, honorariumArr);
